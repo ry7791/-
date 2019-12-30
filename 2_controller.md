@@ -2,13 +2,13 @@
 
 - **전체 레파지토리 리스트 확인**
 
-  ```
+  ```shell
   yum repolist
   ```
 
 - **전체 OS , Kernel을 포함한 업데이트**
 
-  ```
+  ```shell
   yum update -y
   ```
 
@@ -16,7 +16,7 @@
 
 - **CentOS 서비스 최적화**
 
-  ```
+  ```shell
   # systemctl stop firewalld
   # systemctl disable firewalld
   # systemctl disable NetworkManager
@@ -35,7 +35,7 @@
     - iso를 설치하면 기본적으로 enable이 되어 있음
     - vi /etc/selinux/config 에서 설정 가능
 
-    ```
+    ```shell
     # This file controls the state of SELinux on the system.
     # SELINUX= can take one of these three values:
     #     enforcing - SELinux security policy is enforced.
@@ -54,7 +54,7 @@
 
 - **NTP 서버 구성**
 
-```
+```shell
 # yum install chrony -y
 # vi /etc/chrony.conf
 	/////설정/////
@@ -88,7 +88,7 @@
 
 - **openstack repository 등록**
 
-  ```
+  ```shell
   # yum install -y centos-release-openstack-rocky
   # yum repolist
   # yum upgrade -y
@@ -99,7 +99,7 @@
 
 - **Packstack 설치**
 
-```
+```shell
 # yum install -y openstack-packstack*
 # packstack --gen-answer-file=/root/openstack.txt
 # cp /root/openstack.txt /root/openstack.orig
@@ -113,6 +113,8 @@
 	873 CONFIG_NEUTRON_OVS_BRIDGE_IFACES=br-ex:ens33
 	//수정//
 	
+# time packstack --answer-file=/root/openstack.txt	//올인원으로 설치 time은 그냥 설치시간볼라고
+
 
 ```
 
