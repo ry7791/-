@@ -17,7 +17,7 @@
 - **CentOS 서비스 최적화**
 
   ```shell
-  # systemctl stop firewalld
+  # systemctl stop firewalld //방화벽해제
   # systemctl disable firewalld
   # systemctl disable NetworkManager
   # systemctl stop NetworkManager
@@ -36,6 +36,7 @@
     - vi /etc/selinux/config 에서 설정 가능
 
     ```shell
+    // selinux 해제
     # This file controls the state of SELinux on the system.
     # SELINUX= can take one of these three values:
     #     enforcing - SELinux security policy is enforced.
@@ -48,8 +49,8 @@
     #     mls - Multi Level Security protection.
     SELINUXTYPE=targeted
     
-    ```
-
+  ```
+    
     
 
 - **NTP 서버 구성**
@@ -64,7 +65,7 @@
 	#server 1.centos.pool.ntp.org iburst
 	#server 2.centos.pool.ntp.org iburst
 	server 3.centos.pool.ntp.org iburst
-	server 2.kr.pool.ntp.org.iburst
+	server 2.kr.pool.ntp.org iburst
 	server 127.127.1.0
 
 	allow 10.0.0.0/24
@@ -117,4 +118,39 @@
 
 
 ```
+
+
+
+## Openstack 용어 정의
+
+- 프로젝트 - cloud 사용자 group에 Quota 적용
+- Tenant - cloud 사용자 그룹(project)
+- Flavor - VM profile
+- Image - Instance에 연결 될 OS 설치 이미지
+- Instacne - VM
+- Key pair - DER/PEM/X.509로 인코딩된 넷스케이프 인증서 사용자가 VM instance에 접속시 사용
+
+
+
+## Horizon 으로 사용 및 관리
+
+| 1.프로젝트 생성             | 관리자 provider           |
+| --------------------------- | ------------------------- |
+| 2. 사용자 생성  = IT 관계자 | 관리자 provider           |
+| 3. Flavor 생성              | 관리자 provider           |
+| 4. Network 생성             | Slef-Service              |
+| 5. Router 생성              | Slef-Service              |
+| 6. Security Group 생성      | Slef-Service              |
+| 7. Key pair 생성            | Slef-Service              |
+| 8. Floating IP 생성         | Slef-Service  , aws의 EIP |
+| 9. Image 생성               | Slef-Service              |
+| 10.Instance 생성            |                           |
+| 11. Volume/snapshot 생성    | ↑EC2                      |
+| 12. Object storage 사용     | ↓S3                       |
+
+
+
+
+
+
 
