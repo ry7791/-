@@ -49,9 +49,11 @@
     #     mls - Multi Level Security protection.
     SELINUXTYPE=targeted
     
+    ```
   ```
     
     
+  ```
 
 - **NTP 서버 구성**
 
@@ -149,6 +151,21 @@
 | 12. Object storage 사용     | ↓S3                       |
 
 
+
+## openstack 프로젝트 생성 후 key 기반 Instance에 접속
+
+```shell
+# vmhgfs-fuse /mnt
+# df -h
+# cd /mnt/hgfs/
+# ls
+# cd share_linux/
+# ls
+# cp user1-key1.pem /root //키를 root에 복사
+# chmod 600 /root/user1-key1.pem // 접근권한을 사용자에게만 허용해야 ssh 실행 가능
+# ip netns
+# ip netns exec qrouter-7de24fa3-477e-4b30-b78d-917a4cd52852 ssh -i user1-key1.pem cirros@10.0.0.216 // 아이피는 유동ip로
+```
 
 
 
